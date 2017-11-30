@@ -12,7 +12,7 @@ import java.util.Date;
        indexes = {
                @Index(name = "pingan_puhui_user_info_idx01", columnList = "modifiedAt")
        })
-public class PinganPuhuiUserInfo {
+public class PinganPuhuiUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

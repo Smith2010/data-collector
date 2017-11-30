@@ -1,0 +1,228 @@
+@charset "utf-8";
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary
+{
+    display: block;
+}
+html, body
+{
+    margin: 0 auto;
+    padding: 0;
+    font-size: 62.5%;
+    max-width: 750px;
+}
+body
+{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-text-size-adjust: none;
+    -webkit-backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+    font: 12px/1.5 Hiragino Sans GB W3,Microsoft yahei,Arial,sans-serif, "\5fae\8f6f\96c5\9ed1";
+    color:#333333;
+}
+a:focus
+{
+    outline: thin dotted;
+}
+a:active, a:hover
+{
+    outline: 0;
+}
+b, strong
+{
+    font-weight: bold;
+}
+.clearfix:after
+{
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clearfix
+{  
+    *zoom: 1;
+}
+img
+{
+    border: 0;
+    display: block;
+}
+svg:not(:root)
+{
+    overflow: hidden;
+}
+button, input, select, textarea
+{
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+button, select
+{
+    text-transform: none;
+}
+button, html input[type="button"], input[type="reset"], input[type="submit"]
+{
+    -webkit-appearance: button;
+    cursor: pointer;
+    border: none;
+}
+button[disabled], html input[disabled]
+{
+    cursor: default;
+}
+input[type="checkbox"], input[type="radio"]
+{
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="search"]
+{
+    -webkit-appearance: textfield;
+    box-sizing: content-box;
+}
+input[type="search"]::-webkit-search-cancel-button, input[type="search"]::-webkit-search-decoration
+{
+    -webkit-appearance: none;
+}
+button::-moz-focus-inner, input::-moz-focus-inner
+{
+    border: 0;
+    padding: 0;
+}
+textarea
+{
+    overflow: auto;
+    vertical-align: top;
+}
+p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6
+{
+    margin: 0;
+    padding: 0;
+}
+h1, h2, h3, h4, h5, h6
+{
+    font-weight: normal;
+}
+ul
+{
+    list-style: none;
+    font-size: 0;
+}
+em
+{
+    font-style: normal;
+}
+a
+{
+    text-decoration: none;
+    color: inherit;
+}
+input
+{
+    outline: none;
+    border: none;
+    background: transparent;
+}
+[type="number"]::-webkit-textfield-decoration-container
+{
+    background-color: transparent;
+}
+[type="number"]::-webkit-inner-spin-button
+{
+    -webkit-appearance: none;
+}
+[type="number"]::-webkit-outer-spin-button
+{
+    -webkit-appearance: none;
+}
+
+.top_logo
+{
+    width: 100%;
+    background-color: #ffffff;
+}
+.btm-nav
+{
+    position:fixed;
+    bottom:0px;
+    margin:0 auto;
+    max-width:7.5rem;
+    background-color:#ffffff;
+    border-top:1px solid #c2c2c3;
+    height:0.92rem;
+    width:100%;
+    font-size:0.3rem;
+    color:#666666;
+    line-height:0.92rem;
+    z-index:100;
+}
+.btm-nav a
+{
+   display:inline-block;
+   text-indent:0.95rem;
+}
+.btm-nav .a1
+{
+    width:33%;
+    background:url(../images/mp_img.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.btm-nav .a2
+{
+    width:34%;
+    border-left:1px solid #c2c2c3;
+    border-right:1px solid #c2c2c3;
+    box-sizing: border-box;
+    background:url(../images/idai_img.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.btm-nav .a3
+{
+    width:33%;
+    background:url(../images/yw_img.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.btm-nav a.sel{
+    color:#f05a23;
+}
+.btm-nav .a1.sel
+{
+    background:url(../images/mp_img_sel.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.btm-nav .a2.sel
+{
+    background:url(../images/idai_img_sel.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.btm-nav .a3.sel
+{
+    background:url(../images/yw_img_sel.png) 0.38rem center no-repeat;
+    background-size:0.37rem;
+}
+.copyright
+{
+    background-color: #efeff4;
+    text-align: center;
+    padding: 0.4rem 0 0.3rem 0;
+    z-index: 3;
+    width: 100%;
+}
+.copyright img
+{
+    width:100%;
+    margin-bottom:0.3rem;
+}
+.bottom_txt
+{
+    color: #303030;
+    font-size: 0.12rem;
+}
+.bottom_txt span
+{
+    margin-left: 0.24rem;
+}
