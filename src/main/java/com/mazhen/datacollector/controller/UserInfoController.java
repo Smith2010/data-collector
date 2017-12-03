@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import javax.servlet.http.HttpSession;
+
 @Slf4j
 @Controller
 public class UserInfoController {
@@ -33,16 +35,36 @@ public class UserInfoController {
         return "loan";
     }
 
-    @PostMapping("/sendCode")
-    public String sendCode(@RequestBody String mobile) {
-        return messageService.sendMessage(mobile);
+    @PostMapping(value = "/sendCode", consumes = "text/plain;charset=UTF-8;")
+    public ResponseEntity<String> sendCode(@RequestBody String mobile, HttpSession session) {
+        String code = messageService.sendMessage(mobile);
+
+        String result;
+        if ("0".equals(code)) {
+            result = "failed";
+        } else {
+            session.setAttribute(mobile, code);
+            result = "success";
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
-    @PostMapping(value = "/submit", consumes = "application/json;charset=UTF-8;", produces = "application/json;charset=UTF-8;")
-    public ResponseEntity<String> submit(@RequestBody String userStr) {
+    @PostMapping(value = "/submit", consumes = "application/json;charset=UTF-8;")
+    public ResponseEntity<String> submit(@RequestBody String userStr, HttpSession session) {
+        String result;
+
         PinganPuhuiUserInfo user = JSON.parseObject(userStr, PinganPuhuiUserInfo.class);
+        String code = (String) session.getAttribute(user.getMobile());
+        if (code.equals(user.getCode())) {
+            userInfoService.addPinganPuhuiUserInfo(user);
+            result = "success";
+        } else {
+            result = "failed";
+        }
+
         userInfoService.addPinganPuhuiUserInfo(user);
-        return new ResponseEntity<>("success", HttpStatus.OK);
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 }

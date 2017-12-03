@@ -8,7 +8,6 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "pingan_puhui_user_info",
-       uniqueConstraints = @UniqueConstraint(columnNames = { "mobile" }),
        indexes = {
                @Index(name = "pingan_puhui_user_info_idx01", columnList = "modifiedAt")
        })

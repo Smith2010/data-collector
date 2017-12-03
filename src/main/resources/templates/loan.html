@@ -246,13 +246,15 @@
             success: function (o) {
                 if (o == "success") {
                     alertTips('提交成功');
+                } else if (o == "failed") {
+                    alertTips('验证码错误');
                 } else {
                     alertTips('提交失败');
                 }
             },
             complete: function () {
             },
-            error: function (o) {
+            error: function () {
                 alertTips('提交失败');
             }
         });

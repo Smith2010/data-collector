@@ -1,6 +1,3 @@
-// 作者:邹慧刚,一些常用的js函数，整理了下，方面各个项目调用
-// 在anooc.js之前，需要引入其他js,如:jquery 和layer.js
-// 版本:2017-7-6 v1.0.0
 var pwd_isok = 0;
 var email_isok = 0;
 var vemail_isok = 0;
@@ -63,46 +60,37 @@ var _anooc = {
 	   * */
 	sendCode: function (_INPUT_ID,_TYPES,_TYPES_ID) {
         var n = $("#"+_INPUT_ID).val();//请输入验证码,input的id
-        //alert(n);
-        /*this.valicatmobile(n);
-        if (!vmobile_isok) {
-            return false;
-        }*/
 	
 	    if (!this.mobileExp.test(n)) {
-           // alertMsg("<span style='color:red;'>请正确输入手机号码！</span>");
-		   	//alert("请正确输入手机号码!");
-			//weui.topTips('请正确输入手机号码', 3000);
 			mcAlert("请正确输入手机号码");
             return false;
         }
         $.ajax({
-            url: "https://www.yyang.net.cn/anooc/sendAppcode",
-            data: {action: 'xiaochengxu',ajaxdata: "sendMcode", type: 'bdB', mobile: n, ajax: Math.random()},
+            url: "/sendCode",
+            type: "post",
+            contentType: "text/plain",
+            data: n,
             async: false,
             timeout: 90000,
             beforeSend: function () {
             },
-            dataType: 'json',
+            dataType: 'text',
             success: function (o) {
-                if (o.status == "200") {
+                if (o == "success") {
 					if(_TYPES_ID&&_TYPES=="a"){//存在则有倒计时，为空则不用倒计时
 						_anooc.RemainTime_a(_TYPES_ID);//倒计时超链接a的id	
 					}else if(_TYPES_ID&&_TYPES=="button"){
 						_anooc.RemainTime(_TYPES_ID);//button的id	
 					}
-					mcAlert(o.info);
-                	//weui.topTips(o.data, 3000);
-                    //alert("<span style='color:green;'>" + o.data + "</span>");
+					mcAlert('发送成功');
                 } else {
-                    //alert("<span style='color:red;'>" + o.data + "</span>");
-				    //weui.topTips(o.data, 3000);
-					mcAlert(o.info);
+					mcAlert('发送失败');
                 }
             },
             complete: function () {
             },
             error: function () {
+                mcAlert('发送失败');
             }
         });
     },
@@ -259,18 +247,6 @@ function mError(Msg) {
     });
 
 }
-
-//function mAlert(Msg,url) {
-//    layer.closeAll();
-//    layer.open({ content: Msg,
-
-//    btn: ['确认'],
-//    shadeClose: false,
-//    yes: function(){
-//        location.href = url;
-//    }
-//    });
-//}
 
 function mLoading() {
     layer.closeAll();
