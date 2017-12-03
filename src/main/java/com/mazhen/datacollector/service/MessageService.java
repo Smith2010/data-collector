@@ -41,8 +41,7 @@ public class MessageService {
         params.put("action", "send");
         params.put("extno", "");
 
-//        String result = postRequest(smsUrl, params);
-        String result = "{\"returnstatus\":\"Success\", \"message\":\"操作成功\", \"remainpoint\":\"-4\", \"taskID\":\"1504080852350206\", \"successCounts\":\"1\"}";
+        String result = postRequest(smsUrl, params);
         Map<String,String> resultMap = (Map<String,String>) JSON.parse(result);
 
         if ("Success".equals(resultMap.get("returnstatus"))) {
