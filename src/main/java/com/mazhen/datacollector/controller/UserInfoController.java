@@ -63,7 +63,6 @@ public class UserInfoController {
             result = "failed";
         }
 
-        userInfoService.addPinganPuhuiUserInfo(user);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
