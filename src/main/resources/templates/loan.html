@@ -69,6 +69,11 @@
                 </p>
             </div>
 
+            <div class="" style="margin:5px 0 15px 0;line-height: 30px;color:#fff">
+                <input type="checkbox" name="agreed" id="agreed" value="1" checked="checked"/>
+                <label for="agreed"><b style="color:#ed592d;font-size:14px;">申请有礼：1-100万交通意外险免费送</b>（提示:有保单借款更容易）</label>
+            </div>
+
             <input id="nextsub" type="button" value="立即申请"/>
         </div>
     </div>
@@ -220,12 +225,14 @@
                 SubmitIndex = 0;
                 return false;
             }
+            var agreed = $("#agreed").val();
 
             var dataJson = {
                 'name': name,
                 'sex': sex,
                 'mobile': mobile,
                 'birthDate': birthDate,
+                'agreed': agreed,
                 'code': code
             };
 

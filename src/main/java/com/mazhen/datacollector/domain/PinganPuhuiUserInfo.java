@@ -8,5 +8,6 @@ public class PinganPuhuiUserInfo {
     private String mobile;
     private String birthDate;
     private Byte sex;
+    private Byte agreed;
     private String code;
 }

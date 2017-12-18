@@ -29,6 +29,9 @@ public class PinganPuhuiUserEntity {
     @Column(name = "sex", columnDefinition = "tinyint(1)", nullable = false)
     private Byte sex;
 
+    @Column(name = "agreed", columnDefinition = "tinyint(1)", nullable = false)
+    private Byte agreed;
+
     @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "createdAt", nullable = false, updatable = false)
     private Date createdAt;
